@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events & Announcements - Data Science & AI Department</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/events.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+    <div class="theme-toggle">
+        <input type="checkbox" id="theme-switch" class="theme-switch">
+        <label for="theme-switch" class="theme-switch-label">
+            <span class="theme-switch-icon"></span>
+        </label>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>INCEPT<span>ION</h1>
+            </div>
+            <nav>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="notes.html">Notes</a></li>
+                    <li><a href="chat.html">Chat</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="events.html" class="active">Events</a></li>
+                    <li><a href="leaderboard.html">Leaderboard</a></li>
+                    <li><a href="#" id="login-btn" class="btn-secondary">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Events & Announcements</h1>
+                <p>Stay updated with the latest department events, workshops, and important announcements</p>
+            </div>
+        </section>
+
+        <section class="events-section">
+            <div class="container">
+                <div class="events-tabs">
+                    <button class="event-tab active" data-tab="calendar">Calendar View</button>
+                    <button class="event-tab" data-tab="list">List View</button>
+                    <button class="event-tab" data-tab="announcements">Announcements</button>
+                </div>
+
+                <div class="events-content">
+                    <!-- Calendar View -->
+                    <div class="events-tab-content active" id="calendar-view">
+                        <div class="calendar-controls">
+                            <div class="calendar-nav">
+                                <button id="prev-month" class="calendar-nav-btn">
+                                    <span class="prev-icon"></span>
+                                </button>
+                                <h3 id="current-month">March 2025</h3>
+                                <button id="next-month" class="calendar-nav-btn">
+                                    <span class="next-icon"></span>
+                                </button>
+                            </div>
+                            <div class="calendar-legend">
+                                <div class="legend-item">
+                                    <span class="legend-color workshop"></span>
+                                    <span>Workshop</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color conference"></span>
+                                    <span>Conference</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color seminar"></span>
+                                    <span>Seminar</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color deadline"></span>
+                                    <span>Deadline</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="calendar-container">
+                            <div class="calendar-header">
+                                <div>Sun</div>
+                                <div>Mon</div>
+                                <div>Tue</div>
+                                <div>Wed</div>
+                                <div>Thu</div>
+                                <div>Fri</div>
+                                <div>Sat</div>
+                            </div>
+                            <div class="calendar-grid" id="calendar-grid">
+                                <!-- Calendar days will be dynamically added here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- List View -->
+                    <div class="events-tab-content" id="list-view">
+                        <div class="list-controls">
+                            <div class="list-filter">
+                                <select id="event-type-filter">
+                                    <option value="all">All Event Types</option>
+                                    <option value="workshop">Workshops</option>
+                                    <option value="conference">Conferences</option>
+                                    <option value="seminar">Seminars</option>
+                                    <option value="deadline">Deadlines</option>
+                                </select>
+                                <select id="event-time-filter">
+                                    <option value="upcoming">Upcoming Events</option>
+                                    <option value="past">Past Events</option>
+                                    <option value="all">All Events</option>
+                                </select>
+                            </div>
+                            <div class="list-search">
+                                <input type="text" id="event-search" placeholder="Search events...">
+                                <button id="search-event-btn">Search</button>
+                            </div>
+                        </div>
+                        <div class="events-list" id="events-list">
+                            <!-- Events will be dynamically added here -->
+                        </div>
+                    </div>
+
+                    <!-- Announcements -->
+                    <div class="events-tab-content" id="announcements-view">
+                        <div class="announcements-header">
+                            <h3>Department Announcements</h3>
+                            <p>Important updates and notifications from the department</p>
+                        </div>
+                        <div class="announcements-list" id="announcements-list">
+                            <!-- Announcements will be dynamically added here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-event">
+            <div class="container">
+                <h2 class="section-title">Featured Event</h2>
+                <div class="featured-event-card">
+                    <div class="featured-event-image"></div>
+                    <div class="featured-event-content">
+                        <div class="event-badge conference">Conference</div>
+                        <h3>Annual AI Research Symposium</h3>
+                        <div class="event-details">
+                            <div class="event-detail">
+                                <span class="detail-icon date-icon"></span>
+                                <span>March 25-27, 2025</span>
+                            </div>
+                            <div class="event-detail">
+                                <span class="detail-icon location-icon"></span>
+                                <span>Main Campus Auditorium</span>
+                            </div>
+                            <div class="event-detail">
+                                <span class="detail-icon time-icon"></span>
+                                <span>9:00 AM - 5:00 PM</span>
+                            </div>
+                        </div>
+                        <p class="event-description">
+                            Join us for the annual AI Research Symposium featuring keynote speakers from leading tech companies and research institutions. The three-day event will include paper presentations, panel discussions, and networking opportunities. This year's theme is "AI for Sustainable Development" with a focus on applications in climate science, resource management, and ethical considerations.
+                        </p>
+                        <div class="event-actions">
+                            <button class="btn-primary">Register Now</button>
+                            <button class="btn-secondary">Add to Calendar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="event-submission">
+            <div class="container">
+                <div class="submission-content">
+                    <h2>Have an event to share?</h2>
+                    <p>Submit your AI or data science related events to be featured in our calendar.</p>
+                    <button id="submit-event-btn" class="btn-primary">Submit Event</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>INCEPT<span>ION</h2>
+                    <p>Exploring the frontiers of data science and artificial intelligence</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Navigation</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="notes.html">Notes</a></li>
+                            <li><a href="chat.html">Chat</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                            <li><a href="events.html">Events</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="#">Research Papers</a></li>
+                            <li><a href="#">Tutorials</a></li>
+                            <li><a href="#">Datasets</a></li>
+                            <li><a href="#">AI Tools</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Connect</h3>
+                        <ul>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Faculty</a></li>
+                            <li><a href="#">Alumni</a></li>
+                            <li><a href="#">Partners</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Data Science & AI Department. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Event Details Modal -->
+    <div class="modal" id="event-details-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="event-details-content">
+                <div class="event-type-badge" id="modal-event-type">Conference</div>
+                <h2 id="modal-event-title">Event Title</h2>
+                <div class="modal-event-details">
+                    <div class="modal-detail">
+                        <span class="detail-icon date-icon"></span>
+                        <span id="modal-event-date">Date</span>
+                    </div>
+                    <div class="modal-detail">
+                        <span class="detail-icon time-icon"></span>
+                        <span id="modal-event-time">Time</span>
+                    </div>
+                    <div class="modal-detail">
+                        <span class="detail-icon location-icon"></span>
+                        <span id="modal-event-location">Location</span>
+                    </div>
+                </div>
+                <div class="modal-event-description" id="modal-event-description">
+                    Event description will appear here.
+                </div>
+                <div class="modal-event-organizer">
+                    <h4>Organized by</h4>
+                    <p id="modal-event-organizer">Organizer</p>
+                </div>
+                <div class="modal-event-actions">
+                    <button class="btn-primary" id="modal-register-btn">Register</button>
+                    <button class="btn-secondary" id="modal-calendar-btn">Add to Calendar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Submit Event Modal -->
+    <div class="modal" id="submit-event-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Submit an Event</h2>
+            <form id="submit-event-form">
+                <div class="form-group">
+                    <label for="event-title">Event Title</label>
+                    <input type="text" id="event-title" required>
+                </div>
+                <div class="form-group">
+                    <label for="event-description">Description</label>
+                    <textarea id="event-description" rows="4" required></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="event-type">Event Type</label>
+                        <select id="event-type" required>
+                            <option value="">Select Type</option>
+                            <option value="workshop">Workshop</option>
+                            <option value="conference">Conference</option>
+                            <option value="seminar">Seminar</option>
+                            <option value="deadline">Deadline</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="event-organizer">Organizer</label>
+                        <input type="text" id="event-organizer" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="event-date">Date</label>
+                        <input type="date" id="event-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="event-time">Time</label>
+                        <input type="time" id="event-time" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="event-location">Location</label>
+                    <input type="text" id="event-location" required>
+                </div>
+                <div class="form-group">
+                    <label for="event-image">Event Image (Optional)</label>
+                    <div class="file-upload">
+                        <input type="file" id="event-image" accept=".jpg,.jpeg,.png,.gif">
+                        <div class="file-upload-label">
+                            <span>Choose a file</span> or drag it here
+                        </div>
+                    </div>
+                    <div class="file-info" id="event-image-info"></div>
+                </div>
+                <button type="submit" class="btn-primary">Submit Event</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div class="modal" id="auth-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Login</button>
+                <button class="auth-tab" data-tab="register">Register</button>
+            </div>
+            <div class="auth-form-container">
+                <form id="login-form" class="auth-form active">
+                    <h2>Welcome Back</h2>
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <div class="form-group remember-me">
+                        <input type="checkbox" id="remember-me">
+                        <label for="remember-me">Remember me</label>
+                    </div>
+                    <button type="submit" class="btn-primary">Login</button>
+                </form>
+                <form id="register-form" class="auth-form">
+                    <h2>Create Account</h2>
+                    <div class="form-group">
+                        <label for="register-name">Full Name</label>
+                        <input type="text" id="register-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm">Confirm Password</label>
+                        <input type="password" id="register-confirm" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/events.js"></script>
+</body>
+</html>

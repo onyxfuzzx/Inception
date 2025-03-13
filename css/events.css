@@ -1,0 +1,687 @@
+/* Events Page Styles */
+.events-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-xl);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.event-tab {
+    padding: 1rem 1.5rem;
+    background: none;
+    border: none;
+    font-weight: 600;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: color var(--transition-fast);
+    position: relative;
+}
+
+.event-tab:hover {
+    color: var(--primary-color);
+}
+
+.event-tab.active {
+    color: var(--primary-color);
+}
+
+.event-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.events-tab-content {
+    display: none;
+}
+
+.events-tab-content.active {
+    display: block;
+}
+
+/* Calendar View */
+.calendar-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    gap: var(--spacing-md);
+}
+
+.calendar-nav {
+    display: flex;
+    align-items: center;
+}
+
+.calendar-nav h3 {
+    margin: 0 1.5rem;
+    min-width: 150px;
+    text-align: center;
+}
+
+.calendar-nav-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-alt);
+    border: none;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.calendar-nav-btn:hover {
+    background-color: rgba(74, 108, 247, 0.1);
+}
+
+.prev-icon, .next-icon {
+    width: 18px;
+    height: 18px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.prev-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a6cf7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='19' y1='12' x2='5' y2='12'%3E%3C/line%3E%3Cpolyline points='12 19 5 12 12 5'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+.next-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a6cf7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='5' y1='12' x2='19' y2='12'%3E%3C/line%3E%3Cpolyline points='12 5 19 12 12 19'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+.calendar-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+.legend-color.workshop {
+    background-color: #4caf50;
+}
+
+.legend-color.conference {
+    background-color: #2196f3;
+}
+
+.legend-color.seminar {
+    background-color: #ff9800;
+}
+
+.legend-color.deadline {
+    background-color: #f44336;
+}
+
+.calendar-container {
+    background-color: var(--background-color);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: background-color var(--transition-normal);
+}
+
+.calendar-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: var(--background-alt);
+    padding: 1rem 0;
+    text-align: center;
+    font-weight: 600;
+    transition: background-color var(--transition-normal);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.calendar-day {
+    border: 1px solid var(--border-color);
+    padding: 0.5rem;
+    min-height: 100px;
+    position: relative;
+}
+
+.calendar-day.other-month {
+    background-color: var(--background-alt);
+    opacity: 0.5;
+}
+
+.calendar-day.today {
+    background-color: rgba(74, 108, 247, 0.05);
+}
+
+.day-number {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.day-events {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.day-event {
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.75rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    transition: transform var(--transition-fast);
+}
+
+.day-event:hover {
+    transform: translateY(-2px);
+}
+
+.day-event.workshop {
+    background-color: rgba(76, 175, 80, 0.2);
+    color: #2e7d32;
+}
+
+.day-event.conference {
+    background-color: rgba(33, 150, 243, 0.2);
+    color: #1565c0;
+}
+
+.day-event.seminar {
+    background-color: rgba(255, 152, 0, 0.2);
+    color: #e65100;
+}
+
+.day-event.deadline {
+    background-color: rgba(244, 67, 54, 0.2);
+    color: #c62828;
+}
+
+/* List View */
+.list-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    gap: var(--spacing-md);
+}
+
+.list-filter {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.list-filter select {
+    min-width: 150px;
+}
+
+.list-search {
+    display: flex;
+}
+
+.list-search input {
+    min-width: 250px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.list-search button {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-top-right-radius: var(--border-radius-md);
+    border-bottom-right-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.list-search button:hover {
+    background-color: var(--primary-dark);
+}
+
+.events-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.event-item {
+    background-color: var(--background-color);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal), background-color var(--transition-normal);
+}
+
+.event-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.event-date {
+    width: 100px;
+    padding: 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.event-day {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.event-month {
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.event-year {
+    font-size: 0.875rem;
+}
+
+.event-info {
+    flex: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.event-info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.event-title-container {
+    flex: 1;
+}
+
+.event-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.event-badge.workshop {
+    background-color: rgba(76, 175, 80, 0.2);
+    color: #2e7d32;
+}
+
+.event-badge.conference {
+    background-color: rgba(33, 150, 243, 0.2);
+    color: #1565c0;
+}
+
+.event-badge.seminar {
+    background-color: rgba(255, 152, 0, 0.2);
+    color: #e65100;
+}
+
+.event-badge.deadline {
+    background-color: rgba(244, 67, 54, 0.2);
+    color: #c62828;
+}
+
+.event-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.event-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.event-meta-item {
+    display: flex;
+    align-items: center;
+    color: var(--text-light);
+    font-size: 0.875rem;
+}
+
+.meta-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 0.5rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.time-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236c757d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cpolyline points='12 6 12 12 16 14'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+.location-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236c757d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z'%3E%3C/path%3E%3Ccircle cx='12' cy='10' r='3'%3E%3C/circle%3E%3C/svg%3E");
+}
+
+.organizer-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236c757d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'%3E%3C/path%3E%3Ccircle cx='12' cy='7' r='4'%3E%3C/circle%3E%3C/svg%3E");
+}
+
+.event-description {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.event-actions {
+    margin-top: auto;
+    display: flex;
+    gap: 1rem;
+}
+
+/* Announcements */
+.announcements-header {
+    margin-bottom: var(--spacing-lg);
+}
+
+.announcements-header h3 {
+    margin-bottom: 0.5rem;
+}
+
+.announcements-header p {
+    color: var(--text-light);
+}
+
+.announcements-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.announcement-item {
+    background-color: var(--background-color);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    padding: 1.5rem;
+    transition: background-color var(--transition-normal);
+}
+
+.announcement-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.announcement-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.announcement-date {
+    color: var(--text-light);
+    font-size: 0.875rem;
+}
+
+.announcement-content {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.announcement-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.announcement-author {
+    display: flex;
+    align-items: center;
+}
+
+.author-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.75rem;
+    margin-right: 0.5rem;
+}
+
+.author-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.announcement-tag {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.75rem;
+    background-color: var(--background-alt);
+    color: var(--text-light);
+    transition: background-color var(--transition-normal);
+}
+
+/* Featured Event */
+.featured-event {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--background-alt);
+    transition: background-color var(--transition-normal);
+}
+
+.featured-event-card {
+    background-color: var(--background-color);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    transition: background-color var(--transition-normal);
+}
+
+.featured-event-image {
+    flex: 0 0 100%;
+    height: 200px;
+    background-color: var(--primary-color);
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="%234a6cf7"/><text x="50%" y="50%" font-family="Arial" font-size="20" fill="%23ffffff" text-anchor="middle" dominant-baseline="middle">AI Research Symposium</text></svg>');
+    background-size: cover;
+    background-position: center;
+}
+
+@media (min-width: 992px) {
+    .featured-event-image {
+        flex: 0 0 40%;
+        height: auto;
+    }
+}
+
+.featured-event-content {
+    flex: 0 0 100%;
+    padding: 2rem;
+}
+
+@media (min-width: 992px) {
+    .featured-event-content {
+        flex: 0 0 60%;
+    }
+}
+
+.featured-event-content h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.event-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.event-detail {
+    display: flex;
+    align-items: center;
+}
+
+.detail-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.75rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.date-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a6cf7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2' ry='2'%3E%3C/rect%3E%3Cline x1='16' y1='2' x2='16' y2='6'%3E%3C/line%3E%3Cline x1='8' y1='2' x2='8' y2='6'%3E%3C/line%3E%3Cline x1='3' y1='10' x2='21' y2='10'%3E%3C/line%3E%3C/svg%3E");
+}
+
+.location-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a6cf7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z'%3E%3C/path%3E%3Ccircle cx='12' cy='10' r='3'%3E%3C/circle%3E%3C/svg%3E");
+}
+
+.time-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a6cf7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cpolyline points='12 6 12 12 16 14'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+.event-description {
+    margin-bottom: 2rem;
+    color: var(--text-light);
+}
+
+.event-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Event Submission */
+.event-submission {
+    padding: var(--spacing-xxl) 0;
+    text-align: center;
+}
+
+.submission-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.submission-content h2 {
+    margin-bottom: 1rem;
+}
+
+.submission-content p {
+    margin-bottom: 2rem;
+    color: var(--text-light);
+}
+
+/* Event Details Modal */
+.event-details-content {
+    padding: 1rem;
+}
+
+.event-type-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.event-type-badge.workshop {
+    background-color: rgba(76, 175, 80, 0.2);
+    color: #2e7d32;
+}
+
+.event-type-badge.conference {
+    background-color: rgba(33, 150, 243, 0.2);
+    color: #1565c0;
+}
+
+.event-type-badge.seminar {
+    background-color: rgba(255, 152, 0, 0.2);
+    color: #e65100;
+}
+
+.event-type-badge.deadline {
+    background-color: rgba(244, 67, 54, 0.2);
+    color: #c62828;
+}
+
+.modal-event-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.modal-detail {
+    display: flex;
+    align-items: center;
+}
+
+.modal-event-description {
+    margin-bottom: 1.5rem;
+    color: var(--text-light);
+}
+
+.modal-event-organizer {
+    margin-bottom: 1.5rem;
+}
+
+.modal-event-organizer h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-event-organizer p {
+    color: var(--text-light);
+}
+
+.modal-event-actions {
+    display: flex;
+    gap: 1rem;
+}

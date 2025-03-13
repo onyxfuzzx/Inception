@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inception: Home</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+    <div class="theme-toggle">
+        <input type="checkbox" id="theme-switch" class="theme-switch">
+        <label for="theme-switch" class="theme-switch-label">
+            <span class="theme-switch-icon"></span>
+        </label>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>INCEPT<span>ION</h1>
+            </div>
+            <nav>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="notes.html">Notes</a></li>
+                    <li><a href="chat.html">Chat</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="leaderboard.html">Leaderboard</a></li>
+                    <li><a href="#" id="login-btn" class="btn-secondary">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Explore the Future of <span>Data Science & AI</span></h1>
+                    <p>Join our community of innovators, researchers, and learners to discover the endless possibilities of artificial intelligence and data science.</p>
+                    <div class="hero-buttons">
+                        <a href="#about" class="btn-primary">Get Started</a>
+                        <a href="projects.html" class="btn-secondary">View Projects</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="ai-graphic">
+                        <div class="node n1"></div>
+                        <div class="node n2"></div>
+                        <div class="node n3"></div>
+                        <div class="node n4"></div>
+                        <div class="node n5"></div>
+                        <div class="connection c1"></div>
+                        <div class="connection c2"></div>
+                        <div class="connection c3"></div>
+                        <div class="connection c4"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">About Our Department</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>The Data Science & AI Department is dedicated to advancing the frontiers of artificial intelligence and data science through cutting-edge research, innovative teaching, and community engagement.</p>
+                        <p>Our faculty and students work on projects ranging from machine learning algorithms to natural language processing, computer vision, and ethical AI development.</p>
+                        <div class="stats">
+                            <div class="stat-item">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-label">Students</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label">Research Projects</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">30+</span>
+                                <span class="stat-label">Faculty Members</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <div class="image-container">
+                            <div class="pulse-effect"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Department Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon notes-icon"></div>
+                        <h3>Collaborative Notes</h3>
+                        <p>Access and share course notes, research papers, and study materials with your peers.</p>
+                        <a href="notes.html" class="feature-link">Explore Notes</a>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon chat-icon"></div>
+                        <h3>P2P Chat</h3>
+                        <p>Connect with classmates and professors through real-time chat rooms and discussions.</p>
+                        <a href="chat.html" class="feature-link">Join Conversations</a>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon projects-icon"></div>
+                        <h3>Project Showcase</h3>
+                        <p>Discover and share innovative AI and data science projects created by students and faculty.</p>
+                        <a href="projects.html" class="feature-link">View Projects</a>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon events-icon"></div>
+                        <h3>Events & Announcements</h3>
+                        <p>Stay updated with the latest department events, workshops, and important announcements.</p>
+                        <a href="events.html" class="feature-link">Check Events</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to dive into the world of AI?</h2>
+                    <p>Create an account to access all features including notes sharing, chat rooms, and project collaboration.</p>
+                    <button id="signup-btn" class="btn-primary">Sign Up Now</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>INCEPT<span>ION</h2>
+                    <p>Exploring the frontiers of data science and artificial intelligence</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Navigation</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="notes.html">Notes</a></li>
+                            <li><a href="chat.html">Chat</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                            <li><a href="events.html">Events</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="#">Research Papers</a></li>
+                            <li><a href="#">Tutorials</a></li>
+                            <li><a href="#">Datasets</a></li>
+                            <li><a href="#">AI Tools</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Connect</h3>
+                        <ul>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Faculty</a></li>
+                            <li><a href="#">Alumni</a></li>
+                            <li><a href="#">Partners</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Data Science & AI Department. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Auth Modal -->
+    <div class="modal" id="auth-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Login</button>
+                <button class="auth-tab" data-tab="register">Register</button>
+            </div>
+            <div class="auth-form-container">
+                <form id="login-form" class="auth-form active">
+                    <h2>Welcome Back</h2>
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <div class="form-group remember-me">
+                        <input type="checkbox" id="remember-me">
+                        <label for="remember-me">Remember me</label>
+                    </div>
+                    <button type="submit" class="btn-primary">Login</button>
+                </form>
+                <form id="register-form" class="auth-form">
+                    <h2>Create Account</h2>
+                    <div class="form-group">
+                        <label for="register-name">Full Name</label>
+                        <input type="text" id="register-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm">Confirm Password</label>
+                        <input type="password" id="register-confirm" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>

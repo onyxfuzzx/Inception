@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Data Science & AI Department</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+    <div class="theme-toggle">
+        <input type="checkbox" id="theme-switch" class="theme-switch">
+        <label for="theme-switch" class="theme-switch-label">
+            <span class="theme-switch-icon"></span>
+        </label>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>INCEPT<span>ION</h1>
+            </div>
+            <nav>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="notes.html">Notes</a></li>
+                    <li><a href="chat.html">Chat</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="leaderboard.html">Leaderboard</a></li>
+                    <li><a href="#" id="login-btn" class="btn-secondary">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Project Showcase</h1>
+                <p>Explore innovative AI and data science projects created by students and faculty</p>
+            </div>
+        </section>
+
+        <section class="projects-section">
+            <div class="container">
+                <div class="projects-controls">
+                    <div class="search-filter">
+                        <div class="search-bar">
+                            <input type="text" id="search-projects" placeholder="Search projects...">
+                            <button id="search-btn">Search</button>
+                        </div>
+                        <div class="filter-options">
+                            <select id="category-filter">
+                                <option value="all">All Categories</option>
+                                <option value="ml">Machine Learning</option>
+                                <option value="dl">Deep Learning</option>
+                                <option value="nlp">Natural Language Processing</option>
+                                <option value="cv">Computer Vision</option>
+                                <option value="rl">Reinforcement Learning</option>
+                            </select>
+                            <select id="sort-filter">
+                                <option value="recent">Most Recent</option>
+                                <option value="popular">Most Popular</option>
+                                <option value="az">A-Z</option>
+                                <option value="za">Z-A</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button id="submit-project-btn" class="btn-primary">Submit Project</button>
+                </div>
+
+                <div class="projects-grid" id="projects-container">
+                    <!-- Projects will be dynamically added here -->
+                </div>
+
+                <div class="empty-state" id="empty-projects">
+                    <div class="empty-icon"></div>
+                    <h3>No Projects Found</h3>
+                    <p>Try a different search term or filter, or be the first to submit a project in this category.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-project">
+            <div class="container">
+                <h2 class="section-title">Featured Project</h2>
+                <div class="featured-project-content">
+                    <div class="featured-project-info">
+                        <h3>Neural Style Transfer Web Application</h3>
+                        <p class="featured-project-description">
+                            This project implements a web-based neural style transfer application that allows users to apply artistic styles to their photos using deep learning techniques. The system uses a pre-trained convolutional neural network to separate and recombine the content and style of different images.
+                        </p>
+                        <div class="featured-project-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Created by:</span>
+                                <span class="detail-value">Alice Smith</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Category:</span>
+                                <span class="detail-value">Deep Learning</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Technologies:</span>
+                                <span class="detail-value">TensorFlow, Python, Flask, JavaScript</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Date:</span>
+                                <span class="detail-value">March 2025</span>
+                            </div>
+                        </div>
+                        <div class="featured-project-actions">
+                            <a href="#" class="btn-primary">View Demo</a>
+                            <a href="#" class="btn-secondary">GitHub Repository</a>
+                        </div>
+                    </div>
+                    <div class="featured-project-demo">
+                        <div class="demo-container">
+                            <div class="demo-header">
+                                <h4>Try the Demo</h4>
+                                <p>Upload an image and select a style to see the neural style transfer in action.</p>
+                            </div>
+                            <div class="demo-content">
+                                <div class="demo-images">
+                                    <div class="demo-image-container">
+                                        <div class="demo-image content-image"></div>
+                                        <p>Content Image</p>
+                                    </div>
+                                    <div class="demo-arrow">→</div>
+                                    <div class="demo-image-container">
+                                        <div class="demo-image result-image"></div>
+                                        <p>Result</p>
+                                    </div>
+                                </div>
+                                <div class="demo-controls">
+                                    <div class="style-selector">
+                                        <p>Select Style:</p>
+                                        <div class="style-options">
+                                            <div class="style-option active" data-style="starry-night"></div>
+                                            <div class="style-option" data-style="wave"></div>
+                                            <div class="style-option" data-style="scream"></div>
+                                            <div class="style-option" data-style="kandinsky"></div>
+                                        </div>
+                                    </div>
+                                    <button class="btn-primary demo-btn">Generate</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="submit-cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Have an AI project to showcase?</h2>
+                    <p>Share your work with the community and get feedback from peers and faculty members.</p>
+                    <button id="submit-cta-btn" class="btn-primary">Submit Your Project</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>INCEPT<span>ION</h2>
+                    <p>Exploring the frontiers of data science and artificial intelligence</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Navigation</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="notes.html">Notes</a></li>
+                            <li><a href="chat.html">Chat</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                            <li><a href="events.html">Events</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="#">Research Papers</a></li>
+                            <li><a href="#">Tutorials</a></li>
+                            <li><a href="#">Datasets</a></li>
+                            <li><a href="#">AI Tools</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Connect</h3>
+                        <ul>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Faculty</a></li>
+                            <li><a href="#">Alumni</a></li>
+                            <li><a href="#">Partners</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Data Science & AI Department. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Submit Project Modal -->
+    <div class="modal" id="submit-project-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Submit Your Project</h2>
+            <form id="submit-project-form">
+                <div class="form-group">
+                    <label for="project-title">Project Title</label>
+                    <input type="text" id="project-title" required>
+                </div>
+                <div class="form-group">
+                    <label for="project-description">Description</label>
+                    <textarea id="project-description" rows="4" required></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="project-category">Category</label>
+                        <select id="project-category" required>
+                            <option value="">Select Category</option>
+                            <option value="ml">Machine Learning</option>
+                            <option value="dl">Deep Learning</option>
+                            <option value="nlp">Natural Language Processing</option>
+                            <option value="cv">Computer Vision</option>
+                            <option value="rl">Reinforcement Learning</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="project-technologies">Technologies Used</label>
+                        <input type="text" id="project-technologies" placeholder="e.g., Python, TensorFlow, PyTorch" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="project-github">GitHub Repository URL</label>
+                    <input type="url" id="project-github" placeholder="https://github.com/username/repository" required>
+                </div>
+                <div class="form-group">
+                    <label for="project-demo">Demo URL (Optional)</label>
+                    <input type="url" id="project-demo" placeholder="https://your-demo-site.com">
+                </div>
+                <div class="form-group">
+                    <label for="project-image">Project Image</label>
+                    <div class="file-upload">
+                        <input type="file" id="project-image" accept=".jpg,.jpeg,.png,.gif" required>
+                        <div class="file-upload-label">
+                            <span>Choose a file</span> or drag it here
+                        </div>
+                    </div>
+                    <div class="file-info" id="image-info"></div>
+                </div>
+                <button type="submit" class="btn-primary">Submit Project</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div class="modal" id="auth-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Login</button>
+                <button class="auth-tab" data-tab="register">Register</button>
+            </div>
+            <div class="auth-form-container">
+                <form id="login-form" class="auth-form active">
+                    <h2>Welcome Back</h2>
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <div class="form-group remember-me">
+                        <input type="checkbox" id="remember-me">
+                        <label for="remember-me">Remember me</label>
+                    </div>
+                    <button type="submit" class="btn-primary">Login</button>
+                </form>
+                <form id="register-form" class="auth-form">
+                    <h2>Create Account</h2>
+                    <div class="form-group">
+                        <label for="register-name">Full Name</label>
+                        <input type="text" id="register-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm">Confirm Password</label>
+                        <input type="password" id="register-confirm" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/projects.js"></script>
+</body>
+</html>

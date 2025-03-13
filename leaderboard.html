@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - Data Science & AI Department</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/leaderboard.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+    <div class="theme-toggle">
+        <input type="checkbox" id="theme-switch" class="theme-switch">
+        <label for="theme-switch" class="theme-switch-label">
+            <span class="theme-switch-icon"></span>
+        </label>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>INCEPT<span>ION</h1>
+            </div>
+            <nav>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="notes.html">Notes</a></li>
+                    <li><a href="chat.html">Chat</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="leaderboard.html" class="active">Leaderboard</a></li>
+                    <li><a href="#" id="login-btn" class="btn-secondary">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Community Leaderboard</h1>
+                <p>Recognizing top contributors in our data science and AI community</p>
+            </div>
+        </section>
+
+        <section class="leaderboard-section">
+            <div class="container">
+                <div class="leaderboard-tabs">
+                    <button class="leaderboard-tab active" data-tab="overall">Overall</button>
+                    <button class="leaderboard-tab" data-tab="monthly">Monthly</button>
+                    <button class="leaderboard-tab" data-tab="notes">Notes</button>
+                    <button class="leaderboard-tab" data-tab="projects">Projects</button>
+                    <button class="leaderboard-tab" data-tab="discussions">Discussions</button>
+                </div>
+
+                <div class="leaderboard-content">
+                    <div class="leaderboard-header">
+                        <div class="time-period" id="time-period">All Time</div>
+                        <div class="leaderboard-search">
+                            <input type="text" id="search-users" placeholder="Search users...">
+                            <button id="search-btn">Search</button>
+                        </div>
+                    </div>
+
+                    <div class="top-contributors">
+                        <div class="top-three" id="top-three">
+                            <!-- Top 3 contributors will be dynamically added here -->
+                        </div>
+                    </div>
+
+                    <div class="leaderboard-table-container">
+                        <table class="leaderboard-table">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>User</th>
+                                    <th>Points</th>
+                                    <th>Badges</th>
+                                    <th>Level</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leaderboard-body">
+                                <!-- Leaderboard entries will be dynamically added here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="points-system">
+            <div class="container">
+                <h2 class="section-title">How to Earn Points</h2>
+                <div class="points-grid">
+                    <div class="points-card">
+                        <div class="points-icon notes-points-icon"></div>
+                        <h3>Notes Sharing</h3>
+                        <ul class="points-list">
+                            <li><span class="points-value">+10</span> Upload a note</li>
+                            <li><span class="points-value">+2</span> Download a note</li>
+                            <li><span class="points-value">+5</span> Receive a like on your note</li>
+                        </ul>
+                    </div>
+                    <div class="points-card">
+                        <div class="points-icon projects-points-icon"></div>
+                        <h3>Project Contributions</h3>
+                        <ul class="points-list">
+                            <li><span class="points-value">+20</span> Submit a project</li>
+                            <li><span class="points-value">+5</span> Comment on a project</li>
+                            <li><span class="points-value">+10</span> Project featured on homepage</li>
+                        </ul>
+                    </div>
+                    <div class="points-card">
+                        <div class="points-icon chat-points-icon"></div>
+                        <h3>Community Engagement</h3>
+                        <ul class="points-list">
+                            <li><span class="points-value">+1</span> Send a message in chat</li>
+                            <li><span class="points-value">+5</span> Create a chat room</li>
+                            <li><span class="points-value">+3</span> Answer a question</li>
+                        </ul>
+                    </div>
+                    <div class="points-card">
+                        <div class="points-icon events-points-icon"></div>
+                        <h3>Events Participation</h3>
+                        <ul class="points-list">
+                            <li><span class="points-value">+5</span> Register for an event</li>
+                            <li><span class="points-value">+15</span> Submit an event</li>
+                            <li><span class="points-value">+10</span> Present at an event</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="badges-section">
+            <div class="container">
+                <h2 class="section-title">Achievement Badges</h2>
+                <div class="badges-grid">
+                    <div class="badge-card">
+                        <div class="badge-icon newcomer"></div>
+                        <h3>Newcomer</h3>
+                        <p>Join the community and create a profile</p>
+                    </div>
+                    <div class="badge-card">
+                        <div class="badge-icon note-contributor"></div>
+                        <h3>Note Contributor</h3>
+                        <p>Upload at least 5 notes</p>
+                    </div>
+                    <div class="badge-card">
+                        <div class="badge-icon project-master"></div>
+                        <h3>Project Master</h3>
+                        <p>Submit 3 or more projects</p>
+                    </div>
+                    <div class="badge-card">
+                        <div class="badge-icon discussion-leader"></div>
+                        <h3>Discussion Leader</h3>
+                        <p>Create a chat room with 10+ members</p>
+                    </div>
+                    <div class="badge-card">
+                        <div class="badge-icon event-organizer"></div>
+                        <h3>Event Organizer</h3>
+                        <p>Submit and organize a department event</p>
+                    </div>
+                    <div class="badge-card">
+                        <div class="badge-icon top-contributor"></div>
+                        <h3>Top Contributor</h3>
+                        <p>Reach the top 10 on the leaderboard</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="levels-section">
+            <div class="container">
+                <h2 class="section-title">Experience Levels</h2>
+                <div class="levels-container">
+                    <div class="level-progress">
+                        <div class="level-track">
+                            <div class="level-marker" style="left: 0%">
+                                <div class="level-point"></div>
+                                <div class="level-label">Level 1<br>Beginner<br>0 pts</div>
+                            </div>
+                            <div class="level-marker" style="left: 20%">
+                                <div class="level-point"></div>
+                                <div class="level-label">Level 2<br>Novice<br>100 pts</div>
+                            </div>
+                            <div class="level-marker" style="left: 40%">
+                                <div class="level-point"></div>
+                                <div class="level-label">Level 3<br>Intermediate<br>250 pts</div>
+                            </div>
+                            <div class="level-marker" style="left: 60%">
+                                <div class="level-point"></div>
+                                <div class="level-label">Level 4<br>Advanced<br>500 pts</div>
+                            </div>
+                            <div class="level-marker" style="left: 80%">
+                                <div class="level-point"></div>
+                                <div class="level-label">Level 5<br>Expert<br>1000 pts</div>
+                            </div>
+                            <div class="level-marker" style="left: 100%">
+                                <div class="level-point"></div>
+                                <div class="level-label">Level 6<br>Master<br>2000 pts</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="level-benefits">
+                        <h3>Level Benefits</h3>
+                        <div class="benefits-grid">
+                            <div class="benefit-item">
+                                <h4>Level 3+</h4>
+                                <p>Access to exclusive chat rooms and study groups</p>
+                            </div>
+                            <div class="benefit-item">
+                                <h4>Level 4+</h4>
+                                <p>Ability to create and moderate chat rooms</p>
+                            </div>
+                            <div class="benefit-item">
+                                <h4>Level 5+</h4>
+                                <p>Featured profile on department homepage</p>
+                            </div>
+                            <div class="benefit-item">
+                                <h4>Level 6</h4>
+                                <p>Invitation to join the department's student advisory board</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>INCEPT<span>ION</h2>
+                    <p>Exploring the frontiers of data science and artificial intelligence</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Navigation</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="notes.html">Notes</a></li>
+                            <li><a href="chat.html">Chat</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                            <li><a href="events.html">Events</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="#">Research Papers</a></li>
+                            <li><a href="#">Tutorials</a></li>
+                            <li><a href="#">Datasets</a></li>
+                            <li><a href="#">AI Tools</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Connect</h3>
+                        <ul>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Faculty</a></li>
+                            <li><a href="#">Alumni</a></li>
+                            <li><a href="#">Partners</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Data Science & AI Department. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- User Profile Modal -->
+    <div class="modal" id="user-profile-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="user-profile-content">
+                <div class="user-profile-header">
+                    <div class="user-avatar large">
+                        <span id="modal-user-initials">JD</span>
+                    </div>
+                    <div class="user-info">
+                        <h2 id="modal-user-name">John Doe</h2>
+                        <div class="user-level" id="modal-user-level">Level 4 - Advanced</div>
+                        <div class="user-points" id="modal-user-points">578 points</div>
+                    </div>
+                </div>
+                <div class="user-badges" id="modal-user-badges">
+                    <!-- User badges will be dynamically added here -->
+                </div>
+                <div class="user-stats">
+                    <h3>Contribution Statistics</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value" id="modal-notes-count">12</div>
+                            <div class="stat-label">Notes Shared</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="modal-projects-count">3</div>
+                            <div class="stat-label">Projects</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="modal-messages-count">156</div>
+                            <div class="stat-label">Messages</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="modal-events-count">5</div>
+                            <div class="stat-label">Events</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-activity">
+                    <h3>Recent Activity</h3>
+                    <div class="activity-list" id="modal-activity-list">
+                        <!-- User activity will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div class="modal" id="auth-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Login</button>
+                <button class="auth-tab" data-tab="register">Register</button>
+            </div>
+            <div class="auth-form-container">
+                <form id="login-form" class="auth-form active">
+                    <h2>Welcome Back</h2>
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <div class="form-group remember-me">
+                        <input type="checkbox" id="remember-me">
+                        <label for="remember-me">Remember me</label>
+                    </div>
+                    <button type="submit" class="btn-primary">Login</button>
+                </form>
+                <form id="register-form" class="auth-form">
+                    <h2>Create Account</h2>
+                    <div class="form-group">
+                        <label for="register-name">Full Name</label>
+                        <input type="text" id="register-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm">Confirm Password</label>
+                        <input type="password" id="register-confirm" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/leaderboard.js"></script>
+</body>
+</html>
