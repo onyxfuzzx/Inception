@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - College AI Department</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Admin Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-sidebar-header">
+                <div class="admin-logo">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
+                        <path d="M2 12l10 5 10-5"></path>
+                    </svg>
+                    <span>AI Admin</span>
+                </div>
+                <button id="toggle-sidebar" class="toggle-sidebar-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 6L6 18"></path>
+                        <path d="M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="admin-nav">
+                <ul>
+                    <li class="admin-nav-item active" data-section="dashboard">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                        <span>Dashboard</span>
+                    </li>
+                    <li class="admin-nav-item" data-section="users">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span>Users</span>
+                    </li>
+                    <li class="admin-nav-item" data-section="notes">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        <span>Notes</span>
+                    </li>
+                    <li class="admin-nav-item" data-section="projects">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                        <span>Projects</span>
+                    </li>
+                    <li class="admin-nav-item" data-section="events">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        <span>Events</span>
+                    </li>
+                    <li class="admin-nav-item" data-section="announcements">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        <span>Announcements</span>
+                    </li>
+                    <li class="admin-nav-item" data-section="chats">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                        </svg>
+                        <span>Chat Rooms</span>
+                    </li>
+                    <li class="admin-nav-item" data-section="leaderboard">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="20" x2="18" y2="10"></line>
+                            <line x1="12" y1="20" x2="12" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="14"></line>
+                        </svg>
+                        <span>Leaderboard</span>
+                    </li>
+                    <li class="admin-nav-item" data-section="settings">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                        </svg>
+                        <span>Settings</span>
+                    </li>
+                </ul>
+            </nav>
+            <div class="admin-sidebar-footer">
+                <div class="admin-user">
+                    <div class="admin-avatar" id="admin-avatar">AD</div>
+                    <div class="admin-user-info">
+                        <div class="admin-username" id="admin-username">Admin User</div>
+                        <div class="admin-role">Administrator</div>
+                    </div>
+                </div>
+                <button id="admin-logout" class="admin-logout-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Admin Main Content -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <div class="admin-header-left">
+                    <button id="mobile-sidebar-toggle" class="mobile-sidebar-toggle">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+                    <h1 id="page-title">Dashboard</h1>
+                </div>
+                <div class="admin-header-right">
+                    <div class="admin-search">
+                        <input type="text" placeholder="Search..." id="admin-search-input">
+                        <button id="admin-search-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="admin-actions">
+                        <button id="theme-toggle" class="theme-toggle-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="light-icon">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dark-icon">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        </button>
+                        <button id="notifications-btn" class="notifications-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                            </svg>
+                            <span class="notification-badge">3</span>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Admin Content Sections -->
+            <div class="admin-content">
+                <!-- Dashboard Section -->
+                <section id="dashboard-section" class="admin-section active">
+                    <div class="admin-section-header">
+                        <h2>Dashboard Overview</h2>
+                        <div class="date-filter">
+                            <select id="dashboard-time-filter">
+                                <option value="today">Today</option>
+                                <option value="week" selected>This Week</option>
+                                <option value="month">This Month</option>
+                                <option value="year">This Year</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="stats-cards">
+                        <div class="stat-card">
+                            <div class="stat-icon users-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Total Users</h3>
+                                <div class="stat-number" id="total-users">0</div>
+                                <div class="stat-change positive">+5% from last week</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon notes-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Total Notes</h3>
+                                <div class="stat-number" id="total-notes">0</div>
+                                <div class="stat-change positive">+12% from last week</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon projects-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                    <polyline points="2 17 12 22 22 17"></polyline>
+                                    <polyline points="2 12 12 17 22 12"></polyline>
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Total Projects</h3>
+                                <div class="stat-number" id="total-projects">0</div>
+                                <div class="stat-change positive">+8% from last week</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon events-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Upcoming Events</h3>
+                                <div class="stat-number" id="total-events">0</div>
+                                <div class="stat-change negative">-3% from last week</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-charts">
+                        <div class="chart-container">
+                            <div class="chart-header">
+                                <h3>User Activity</h3>
+                                <div class="chart-actions">
+                                    <button class="chart-action active" data-period="week">Week</button>
+                                    <button class="chart-action" data-period="month">Month</button>
+                                    <button class="chart-action" data-period="year">Year</button>
+                                </div>
+                            </div>
+                            <div class="chart" id="user-activity-chart">
+                                <canvas id="activity-chart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <div class="chart-header">
+                                <h3>Content Distribution</h3>
+                            </div>
+                            <div class="chart" id="content-distribution-chart">
+                                <canvas id="distribution-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-tables">
+                        <div class="table-container">
+                            <div class="table-header">
+                                <h3>Recent Users</h3>
+                                <a href="#" class="view-all" data-section="users">View All</a>
+                            </div>
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>User</th>
+                                        <th>Email</th>
+                                        <th>Level</th>
+                                        <th>Points</th>
+                                        <th>Joined</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recent-users-table">
+                                    <!-- Populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-container">
+                            <div class="table-header">
+                                <h3>Recent Activity</h3>
+                                <a href="#" class="view-all">View All</a>
+                            </div>
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>User</th>
+                                        <th>Activity</th>
+                                        <th>Points</th>
+                                        <th>Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recent-activity-table">
+                                    <!-- Populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Users Section -->
+                <section id="users-section" class="admin-section">
+                    <div class="admin-section-header">
+                        <h2>User Management</h2>
+                        <div class="section-actions">
+                            <div class="search-filter">
+                                <input type="text" id="users-search" placeholder="Search users...">
+                                <button id="users-search-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button id="add-user-btn" class="btn-primary">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                                Add User
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="users-filters">
+                        <div class="filter-group">
+                            <label for="user-role-filter">Role:</label>
+                            <select id="user-role-filter">
+                                <option value="all">All Roles</option>
+                                <option value="student">Student</option>
+                                <option value="faculty">Faculty</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="user-status-filter">Status:</label>
+                            <select id="user-status-filter">
+                                <option value="all">All Status</option>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="pending">Pending</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="user-level-filter">Level:</label>
+                            <select id="user-level-filter">
+                                <option value="all">All Levels</option>
+                                <option value="1">Level 1</option>
+                                <option value="2">Level 2</option>
+                                <option value="3">Level 3</option>
+                                <option value="4">Level 4</option>
+                                <option value="5">Level 5</option>
+                                <option value="6">Level 6</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <input type="checkbox" id="select-all-users">
+                                    </th>
+                                    <th>User</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Status</th>
+                                    <th>Level</th>
+                                    <th>Points</th>
+                                    <th>Joined</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="users-table">
+                                <!-- Populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="pagination">
+                        <button class="pagination-btn" id="prev-page" disabled>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </button>
+                        <div class="pagination-info">
+                            Page <span id="current-page">1</span> of <span id="total-pages">1</span>
+                        </div>
+                        <button class="pagination-btn" id="next-page">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Notes Section -->
+                <section id="notes-section" class="admin-section">
+                    <div class="admin-section-header">
+                        <h2>Notes Management</h2>
+                        <div class="section-actions">
+                            <div class="search-filter">
+                                <input type="text" id="notes-search" placeholder="Search notes...">
+                                <button id="notes-search-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button id="add-note-btn" class="btn-primary">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x  stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                                Add Note
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="notes-filters">
+                        <div class="filter-group">
+                            <label for="note-category-filter">Category:</label>
+                            <select id="note-category-filter">
+                                <option value="all">All Categories</option>
+                                <option value="machine-learning">Machine Learning</option>
+                                <option value="deep-learning">Deep Learning</option>
+                                <option value="data-science">Data Science</option>
+                                <option value="ai-ethics">AI Ethics</option>
+                                <option value="computer-vision">Computer Vision</option>
+                                <option value="nlp">Natural Language Processing</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="note-status-filter">Status:</label>
+                            <select id="note-status-filter">
+                                <option value="all">All Status</option>
+                                <option value="published">Published</option>
+                                <option value="draft">Draft</option>
+                                <option value="archived">Archived</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <input type="checkbox" id="select-all-notes">
+                                    </th>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Author</th>
+                                    <th>Status</th>
+                                    <th>Downloads</th>
+                                    <th>Created</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="notes-table">
+                                <!-- Populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="pagination">
+                        <button class="pagination-btn" id="notes-prev-page" disabled>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </button>
+                        <div class="pagination-info">
+                            Page <span id="notes-current-page">1</span> of <span id="notes-total-pages">1</span>
+                        </div>
+                        <button class="pagination-btn" id="notes-next-page">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Projects Section -->
+                <section id="projects-section" class="admin-section">
+                    <div class="admin-section-header">
+                        <h2>Projects Management</h2>
+                        <div class="section-actions">
+                            <div class="search-filter">
+                                <input type="text" id="projects-search" placeholder="Search projects...">
+                                <button id="projects-search-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button id="add-project-btn" class="btn-primary">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                                Add Project
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="projects-filters">
+                        <div class="filter-group">
+                            <label for="project-category-filter">Category:</label>
+                            <select id="project-category-filter">
+                                <option value="all">All Categories</option>
+                                <option value="machine-learning">Machine Learning</option>
+                                <option value="deep-learning">Deep Learning</option>
+                                <option value="data-science">Data Science</option>
+                                <option value="ai-ethics">AI Ethics</option>
+                                <option value="computer-vision">Computer Vision</option>
+                                <option value="nlp">Natural Language Processing</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="project-status-filter">Status:</label>
+                            <select id="project-status-filter">
+                                <option value="all">All Status</option>
+                                <option value="active">Active</option>
+                                <option value="completed">Completed</option>
+                                <option value="archived">Archived</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <input type="checkbox" id="select-all-projects">
+                                    </th>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Author</th>
+                                    <th>Status</th>
+                                    <th>Featured</th>
+                                    <th>Created</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="projects-table">
+                                <!-- Populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="pagination">
+                        <button class="pagination-btn" id="projects-prev-page" disabled>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </button>
+                        <div class="pagination-info">
+                            Page <span id="projects-current-page">1</span> of <span id="projects-total-pages">1</span>
+                        </div>
+                        <button class="pagination-btn" id="projects-next-page">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Events Section -->
+                <section id="events-section" class="admin-section">
+                    <div class="admin-section-header">
+                        <h2>Events Management</h2>
+                        <div class="section-actions">
+                            <div class="search-filter">
+                                <input type="text" id="events-search" placeholder="Search events...">
+                                <button id="events-search-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button id="add-event-btn" class="btn-primary">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                                Add Event
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="events-filters">
+                        <div class="filter-group">
+                            <label for="event-type-filter">Type:</label>
+                            <select id="event-type-filter">
+                                <option value="all">All Types</option>
+                                <option value="conference">Conference</option>
+                                <option value="workshop">Workshop</option>
+                                <option value="seminar">Seminar</option>
+                                <option value="deadline">Deadline</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="event-time-filter">Time:</label>
+                            <select id="event-time-filter">
+                                <option value="all">All Time</option>
+                                <option value="upcoming">Upcoming</option>
+                                <option value="past">Past</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <input type="checkbox" id="select-all-events">
+                                    </th>
+                                    <th>Title</th>
+                                    <th>Type</th>
+                                    <th>Date</th>
+                                    <th>Location</th>
+                                    <th>Organizer</th>
+                                    <th>Featured</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="events-table">
+                                <!-- Populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="pagination">
+                        <button class="pagination-btn" id="events-prev-page" disabled>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </button>
+                        <div class="pagination-info">
+                            Page <span id="events-current-page">1</span> of <span id="events-total-pages">1</span>
+                        </div>
+                        <button class="pagination-btn" id="events-next-page">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Announcements Section -->
+                <section id="announcements-section" class="admin-section">
+                    <div class="admin-section-header">
+                        <h2>Announcements Management</h2>
+                        <div class="section-actions">
+                            <div class="search-filter">
+                                <input type="text" id="announcements-search" placeholder="Search announcements...">
+                                <button id="announcements-search-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button id="add-announcement-btn" class="btn-primary">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                                Add Announcement
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="announcements-filters">
+                        <div class="filter-group">
+                            <label for="announcement-tag-filter">Tag:</label>
+                            <select id="announcement-tag-filter">
+                                <option value="all">All Tags</option>
+                                <option value="Department News">Department News</option>
+                                <option value="Opportunities">Opportunities</option>
+                                <option value="Academic">Academic</option>
+                                <option value="Events">Events</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <input type="checkbox" id="select-all-announcements">
+                                    </th>
+                                    <th>Title</th>
+                                    <th>Tag</th>
+                                    <th>Author</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="announcements-table">
+                                <!-- Populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="pagination">
+                        <button class="pagination-btn" id="announcements-prev-page" disabled>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </button>
+                        <div class="pagination-info">
+                            Page <span id="announcements-current-page">1</span> of <span id="announcements-total-pages">1</span>
+                        </div>
+                        <button class="pagination-btn" id="announcements-next-page">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Chats Section -->
+                <section id="chats-section" class="admin-section">
+                    <div class="admin-section-header">
+                        <h2>Chat Rooms Management</h2>
+                        <div class="section-actions">
+                            <div class="search-filter">
+                                <input type="text" id="chats-search" placeholder="Search chat rooms...">
+                                <button id="chats-search-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button id="add-chat-btn" class="btn-primary">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                                Add Chat Room
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="chats-filters">
+                        <div class="filter-group">
+                            <label for="chat-status-filter">Status:</label>
+                            <select id="chat-status-filter">
+                                <option value="all">All Status</option>
+                                <option value="active">Active</option>
+                                <option value="archived">Archived</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <input type="checkbox" id="select-all-chats">
+                                    </th>
+                                    <th>Name</th>
+                                    <th>Creator</th>
+                                    <th>Members</th>
+                                    <th>Messages</th>
+                                    <th>Created</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="chats-table">
+                                <!-- Populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="pagination">
+                        <button class="pagination-btn" id="chats-prev-page" disabled>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </button>
+                        <div class="pagination-info">
+                            Page <span id="chats-current-page">1</span> of <span id="chats-total-pages">1</span>
+                        </div>
+                        <button class="pagination-btn" id="chats-next-page">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Leaderboard Section -->
+                <section id="leaderboard-section" class="admin-section">
+                    <div class="admin-section-header">
+                        <h2>Leaderboard Management</h2>
+                        <div class="section-actions">
+                            <div class="search-filter">
+                                <input type="text" id="leaderboard-search" placeholder="Search users...">
+                                <button id="leaderboard-search-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button id="reset-points-btn" class="btn-secondary">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"></path>
+                                </svg>
+                                Reset Points
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="leaderboard-filters">
+                        <div class="filter-group">
+                            <label for="leaderboard-level-filter">Level:</label>
+                            <select id="leaderboard-level-filter">
+                                <option value="all">All Levels</option>
+                                <option value="1">Level 1</option>
+                                <option value="2">Level 2</option>
+                                <option value="3">Level 3</option>
+                                <option value="4">Level 4</option>
+                                <option value="5">Level 5</option>
+                                <option value="6">Level 6</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="leaderboard-badge-filter">Badge:</label>
+                            <select id="leaderboard-badge-filter">
+                                <option value="all">All Badges</option>
+                                <option value="newcomer">Newcomer</option>
+                                <option value="note-contributor">Note Contributor</option>
+                                <option value="project-master">Project Master</option>
+                                <option value="discussion-leader">Discussion Leader</option>
+                                <option value="event-organizer">Event Organizer</option>
+                                <option value="top-contributor">Top Contributor</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>User</th>
+                                    <th>Level</th>
+                                    <th>Points</th>
+                                    <th>Badges</th>
+                                    <th>Notes</th>
+                                    <th>Projects</th>
+                                    <th>Messages</th>
+                                    <th>Events</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leaderboard-table">
+                                <!-- Populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="pagination">
+                        <button class="pagination-btn" id="leaderboard-prev-page" disabled>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </button>
+                        <div class="pagination-info">
+                            Page <span id="leaderboard-current-page">1</span> of <span id="leaderboard-total-pages">1</span>
+                        </div>
+                        <button class="pagination-btn" id="leaderboard-next-page">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Settings Section -->
+                <section id="settings-section" class="admin-section">
+                    <div class="admin-section-header">
+                        <h2>Site Settings</h2>
+                    </div>
+
+                    <div class="settings-container">
+                        <div class="settings-card">
+                            <h3>General Settings</h3>
+                            <form id="general-settings-form">
+                                <div class="form-group">
+                                    <label for="site-title">Site Title</label>
+                                    <input type="text" id="site-title" value="College Data Science & AI Department">
+                                </div>
+                                <div class="form-group">
+                                    <label for="site-description">Site Description</label>
+                                    <textarea id="site-description" rows="3">A platform for students and faculty to share notes, projects, and collaborate on AI and Data Science topics.</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-email">Contact Email</label>
+                                    <input type="email" id="contact-email" value="ai-department@college.edu">
+                                </div>
+                                <div class="form-group">
+                                    <label for="default-theme">Default Theme</label>
+                                    <select id="default-theme">
+                                        <option value="light">Light</option>
+                                        <option value="dark">Dark</option>
+                                        <option value="system">System Preference</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn-primary">Save Changes</button>
+                            </form>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3>Gamification Settings</h3>
+                            <form id="gamification-settings-form">
+                                <div class="form-group">
+                                    <label for="enable-gamification">Enable Gamification</label>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="enable-gamification" checked>
+                                        <label for="enable-gamification"></label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Point Values</label>
+                                    <div class="point-settings">
+                                        <div class="point-setting">
+                                            <label for="note-points">Upload Note</label>
+                                            <input type="number" id="note-points" value="10" min="0">
+                                        </div>
+                                        <div class="point-setting">
+                                            <label for="project-points">Submit Project</label>
+                                            <input type="number" id="project-points" value="20" min="0">
+                                        </div>
+                                        <div class="point-setting">
+                                            <label for="event-points">Submit Event</label>
+                                            <input type="number" id="event-points" value="15" min="0">
+                                        </div>
+                                        <div class="point-setting">
+                                            <label for="chat-points">Create Chat Room</label>
+                                            <input type="number" id="chat-points" value="5" min="0">
+                                        </div>
+                                        <div class="point-setting">
+                                            <label for="message-points">Send Message</label>
+                                            <input type="number" id="message-points" value="1" min="0">
+                                        </div>
+                                        <div class="point-setting">
+                                            <label for="download-points">Download Note</label>
+                                            <input type="number" id="download-points" value="2" min="0">
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn-primary">Save Changes</button>
+                            </form>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3>Security Settings</h3>
+                            <form id="security-settings-form">
+                                <div class="form-group">
+                                    <label for="require-approval">Require Approval for New Users</label>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="require-approval">
+                                        <label for="require-approval"></label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="content-moderation">Content Moderation</label>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="content-moderation" checked>
+                                        <label for="content-moderation"></label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="session-timeout">Session Timeout (minutes)</label>
+                                    <input type="number" id="session-timeout" value="60" min="5">
+                                </div>
+                                <button type="submit" class="btn-primary">Save Changes</button>
+                            </form>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3>Backup & Reset</h3>
+                            <div class="backup-actions">
+                                <button id="export-data-btn" class="btn-secondary">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="7 10 12 15 17 10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg>
+                                    Export Data
+                                </button>
+                                <button id="import-data-btn" class="btn-secondary">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="17 8 12 3 7 8"></polyline>
+                                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                                    </svg>
+                                    Import Data
+                                </button>
+                                <button id="reset-data-btn" class="btn-danger">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 2v20M7 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3"></path>
+                                    </svg>
+                                    Reset All Data
+                                </button>
+                            </div>
+                            <div class="warning-text">
+                                <p>Warning: Resetting data will permanently delete all users, notes, projects, events, and other content. This action cannot be undone.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <!-- User Modal -->
+    <div id="user-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="user-modal-title">Add User</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="user-form">
+                    <div class="form-group">
+                        <label for="user-name">Name</label>
+                        <input type="text" id="user-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-email">Email</label>
+                        <input type="email" id="user-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-password">Password</label>
+                        <input type="password" id="user-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-role">Role</label>
+                        <select id="user-role" required>
+                            <option value="student">Student</option>
+                            <option value="faculty">Faculty</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-status">Status</label>
+                        <select id="user-status" required>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                            <option value="pending">Pending</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" id="cancel-user-btn">Cancel</button>
+                        <button type="submit" class="btn-primary">Save User</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Note Modal -->
+    <div id="note-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="note-modal-title">Add Note</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="note-form">
+                    <div class="form-group">
+                        <label for="note-title">Title</label>
+                        <input type="text" id="note-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="note-category">Category</label>
+                        <select id="note-category" required>
+                            <option value="machine-learning">Machine Learning</option>
+                            <option value="deep-learning">Deep Learning</option>
+                            <option value="data-science">Data Science</option>
+                            <option value="ai-ethics">AI Ethics</option>
+                            <option value="computer-vision">Computer Vision</option>
+                            <option value="nlp">Natural Language Processing</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="note-description">Description</label>
+                        <textarea id="note-description" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="note-content">Content</label>
+                        <textarea id="note-content" rows="10" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="note-author">Author</label>
+                        <select id="note-author" required>
+                            <!-- Populated by JavaScript -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="note-status">Status</label>
+                        <select id="note-status" required>
+                            <option value="published">Published</option>
+                            <option value="draft">Draft</option>
+                            <option value="archived">Archived</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" id="cancel-note-btn">Cancel</button>
+                        <button type="submit" class="btn-primary">Save Note</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Event Modal -->
+    <div id="event-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="event-modal-title">Add Event</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="event-form">
+                    <div class="form-group">
+                        <label for="event-title">Title</label>
+                        <input type="text" id="event-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="event-description">Description</label>
+                        <textarea id="event-description" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="event-type">Type</label>
+                        <select id="event-type" required>
+                            <option value="conference">Conference</option>
+                            <option value="workshop">Workshop</option>
+                            <option value="seminar">Seminar</option>
+                            <option value="deadline">Deadline</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="event-date">Date</label>
+                        <input type="date" id="event-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="event-time">Time</label>
+                        <input type="time" id="event-time" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="event-end-time">End Time</label>
+                        <input type="time" id="event-end-time">
+                    </div>
+                    <div class="form-group">
+                        <label for="event-location">Location</label>
+                        <input type="text" id="event-location" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="event-organizer">Organizer</label>
+                        <input type="text" id="event-organizer" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="event-featured">Featured</label>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="event-featured">
+                            <label for="event-featured"></label>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" id="cancel-event-btn">Cancel</button>
+                        <button type="submit" class="btn-primary">Save Event</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Announcement Modal -->
+    <div id="announcement-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="announcement-modal-title">Add Announcement</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="announcement-form">
+                    <div class="form-group">
+                        <label for="announcement-title">Title</label>
+                        <input type="text" id="announcement-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="announcement-content">Content</label>
+                        <textarea id="announcement-content" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="announcement-tag">Tag</label>
+                        <select id="announcement-tag" required>
+                            <option value="Department News">Department News</option>
+                            <option value="Opportunities">Opportunities</option>
+                            <option value="Academic">Academic</option>
+                            <option value="Events">Events</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="announcement-author">Author</label>
+                        <select id="announcement-author" required>
+                            <!-- Populated by JavaScript -->
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" id="cancel-announcement-btn">Cancel</button>
+                        <button type="submit" class="btn-primary">Save Announcement</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirm-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="confirm-title">Confirm Action</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p id="confirm-message">Are you sure you want to perform this action?</p>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="cancel-confirm-btn">Cancel</button>
+                    <button type="button" class="btn-danger" id="confirm-action-btn">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Admin Login</h2>
+            </div>
+            <div class="modal-body">
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Modal -->
+    <div id="notifications-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Notifications</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="notifications-list" id="notifications-list">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

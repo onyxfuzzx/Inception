@@ -508,9 +508,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-
-    // ... (previous code remains the same)
-
+    
     // Update announcements list
     function updateAnnouncementsList() {
         if (!announcementsList) return;
@@ -533,139 +531,69 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        announcements.forEach(announcement => {
+        announcements.forEach(announcement_item => {
             const announcementItem = document.createElement('div');
             announcementItem.className = 'announcement-item';
             
             // Format date
-            const announcementDate = new Date(announcement.date);
-            const formattedDate = announcementDate.toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            });
+            const announcementDate = new Date(announcement_item.date);
+            const day = announcementDate.getDate();
+            const month = announcementDate.toLocaleString('default', { month: 'short' });
+            const year = announcementDate.getFullYear();
             
             announcementItem.innerHTML = `
                 <div class="announcement-header">
-                    <h4 class="announcement-title">${announcement.title}</h4>
-                    <span class="announcement-date">${formattedDate}</span>
-                </div>
-                <div class="announcement-content">
-                    ${announcement.content}
-                </div>
-                <div class="announcement-footer">
                     <div class="announcement-author">
-                        <div class="author-avatar">${announcement.author.avatar}</div>
+                        <div class="author-avatar">${announcement_item.author.avatar}</div>
                         <div class="author-info">
-                            <div class="author-name">${announcement.author.name}</div>
-                            <div class="author-role">${announcement.author.role}</div>
+                            <div class="author-name">${announcement_item.author.name}</div>
+                            <div class="author-role">${announcement_item.author.role}</div>
                         </div>
                     </div>
-                    <span class="announcement-tag">${announcement.tag}</span>
+                    <div class="announcement-date">
+                        ${month} ${day}, ${year}
+                    </div>
+                </div>
+                <div class="announcement-content">
+                    <h3>${announcement_item.title}</h3>
+                    <p>${announcement_item.content}</p>
+                    <div class="announcement-tag">${announcement_item.tag}</div>
                 </div>
             `;
             
             announcementsList.appendChild(announcementItem);
         });
     }
-
+    
     // Helper functions
+    function formatEventType(type) {
+        return type.charAt(0).toUpperCase() + type.slice(1);
+    }
+    
+    function formatTime(time) {
+        const [hours, minutes] = time.split(':');
+        const period = hours >= 12 ? 'PM' : 'AM';
+        const formattedHours = hours % 12 === 0 ? 12 : hours % 12;
+        return `${formattedHours}:${minutes} ${period}`;
+    }
+
+    // Placeholder functions (replace with actual implementations)
+    function addToCalendar(eventId) {
+        alert(`Added event ${eventId} to calendar`);
+    }
+    
+    // Placeholder function for adding points to user (gamification)
+    function addPointsToUser(email, points, reason) {
+        alert(`Added ${points} points to user ${email} for ${reason}`);
+    }
+
     function isSameDay(date1, date2) {
         return date1.getFullYear() === date2.getFullYear() &&
                date1.getMonth() === date2.getMonth() &&
                date1.getDate() === date2.getDate();
     }
 
-    function formatEventType(type) {
-        return type.charAt(0).toUpperCase() + type.slice(1);
-    }
-
-    function formatTime(timeString) {
-        const [hours, minutes] = timeString.split(':');
-        const hours12 = hours % 12 || 12;
-        const ampm = hours >= 12 ? 'PM' : 'AM';
-        return `${hours12}:${minutes} ${ampm}`;
-    }
-
     function showEventDetails(eventId) {
-        const event = events.find(e => e.id === eventId);
-        if (!event) return;
-
-        const modal = document.getElementById('event-details-modal');
-        const eventDate = new Date(event.date);
-        const formattedDate = eventDate.toLocaleDateString('en-US', {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        });
-
-        // Set modal content
-        document.getElementById('modal-event-type').className = `event-type-badge ${event.type}`;
-        document.getElementById('modal-event-type').textContent = formatEventType(event.type);
-        document.getElementById('modal-event-title').textContent = event.title;
-        document.getElementById('modal-event-date').textContent = formattedDate;
-        document.getElementById('modal-event-time').textContent = `${formatTime(event.time)}${event.endTime ? ` - ${formatTime(event.endTime)}` : ''}`;
-        document.getElementById('modal-event-location').textContent = event.location;
-        document.getElementById('modal-event-description').textContent = event.description;
-        document.getElementById('modal-event-organizer').textContent = event.organizer;
-
-        // Show modal
-        modal.style.display = 'block';
-    }
-
-    function addToCalendar(eventId) {
-        const event = events.find(e => e.id === eventId);
-        if (!event) return;
-
-        // Create iCalendar format
-        const icsContent = [
-            'BEGIN:VCALENDAR',
-            'VERSION:2.0',
-            'BEGIN:VEVENT',
-            `DTSTART:${formatDateForICS(event.date, event.time)}`,
-            `DTEND:${formatDateForICS(event.date, event.endTime || event.time)}`,
-            `SUMMARY:${event.title}`,
-            `DESCRIPTION:${event.description}`,
-            `LOCATION:${event.location}`,
-            'END:VEVENT',
-            'END:VCALENDAR'
-        ].join('\n');
-
-        // Create download
-        const blob = new Blob([icsContent], { type: 'text/calendar' });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = `${event.title.replace(/\s+/g, '_')}.ics`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        URL.revokeObjectURL(url);
-    }
-
-    function formatDateForICS(dateString, timeString) {
-        const date = new Date(dateString);
-        const [hours, minutes] = timeString.split(':');
-        date.setHours(parseInt(hours), parseInt(minutes));
-        
-        return date.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
-    }
-
-    function addPointsToUser(email, points, reason) {
-        const users = JSON.parse(localStorage.getItem('users')) || [];
-        const user = users.find(u => u.email === email);
-        
-        if (user) {
-            user.points = (user.points || 0) + points;
-            user.activities = user.activities || [];
-            user.activities.push({
-                date: new Date().toISOString(),
-                points: points,
-                reason: reason
-            });
-            
-            localStorage.setItem('users', JSON.stringify(users));
-        }
+        alert(`Showing details for event ${eventId}`);
     }
 });
