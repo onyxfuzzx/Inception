@@ -300,6 +300,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 case 'nlp': categoryName = 'NLP'; break;
                 case 'cv': categoryName = 'Computer Vision'; break;
                 case 'rl': categoryName = 'Reinforcement Learning'; break;
+                case 'web': categoryName = 'Website Development'; break;
                 default: categoryName = project.category;
             }
             

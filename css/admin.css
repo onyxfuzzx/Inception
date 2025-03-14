@@ -9,6 +9,10 @@
     --info-color: #3b82f6;
     --light-color: #f3f4f6;
     --dark-color: #1f2937;
+    --dark-bg: #1a1a1a;
+    --dark-text: #e0e0e0;
+    --dark-border: #2d2d2d;
+    --dark-gray-700: #2d3748;
     --gray-100: #f3f4f6;
     --gray-200: #e5e7eb;
     --gray-300: #d1d5db;
@@ -33,9 +37,34 @@ body {
     line-height: 1.5;
 }
 
+body.dark {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+body.dark .admin-table {
+    color: var(--dark-text);
+}
+
+body.dark .form-group input,
+body.dark .form-group select,
+body.dark .form-group textarea {
+    background-color: var(--dark-gray-700);
+    color: var(--dark-text);
+}
+
 .dark body {
     background-color: var(--gray-900);
     color: var(--gray-200);
+}
+
+body.dark .admin-sidebar {
+    background-color: var(--gray-800);
+    border-right-color: var(--gray-700);
+}
+
+body.dark .admin-sidebar-header {
+    border-bottom-color: var(--gray-700);
 }
 
 * {
@@ -64,6 +93,28 @@ button {
 .admin-container {
     display: flex;
     min-height: 100vh;
+}
+
+body.dark .admin-table {
+    background-color: var(--dark-gray-700);
+}
+
+body.dark .admin-table th {
+    background-color: var(--gray-800);
+}
+
+body.dark .admin-table tr:hover {
+    background-color: var(--gray-700);
+}
+
+body.dark .form-control {
+    background-color: var(--dark-gray-700);
+    border-color: var(--dark-border);
+    color: var(--dark-text);
+}
+
+body.dark .form-control:focus {
+    border-color: var(--primary-color);
 }
 
 /* Admin Sidebar */
